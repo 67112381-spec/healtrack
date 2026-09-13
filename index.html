@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealTrack - Healing Journey</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= LOGIN ================= -->
+
+<div id="loginPage" class="login-page">
+
+    <div class="login-decoration bubble1"></div>
+    <div class="login-decoration bubble2"></div>
+    <div class="login-decoration bubble3"></div>
+
+    <div class="login-container">
+
+        <div class="login-left">
+
+            <div class="login-brand">
+                <div class="brand-icon">🩹</div>
+                <div>
+                    <h1>HealTrack</h1>
+                    <span>Healing Journey</span>
+                </div>
+            </div>
+
+            <div class="login-illustration">
+                <div class="floating-icon icon1">💗</div>
+                <div class="floating-icon icon2">🩹</div>
+                <div class="floating-icon icon3">✨</div>
+
+                <div class="heart-circle">
+                    <span>🩹</span>
+                </div>
+            </div>
+
+            <h2>Your wound.<br>Your healing journey.</h2>
+
+            <p class="login-description">
+                ระบบติดตามการฟื้นตัวของแผล
+                ช่วยเก็บข้อมูลและดูการเปลี่ยนแปลง
+                ของแผลอย่างต่อเนื่อง
+            </p>
+
+            <div class="feature-list">
+
+                <div class="login-feature">
+                    <div>🌡️</div>
+                    <span>Smart Monitoring</span>
+                </div>
+
+                <div class="login-feature">
+                    <div>🤖</div>
+                    <span>AI Insight</span>
+                </div>
+
+                <div class="login-feature">
+                    <div>💗</div>
+                    <span>Healing Journey</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="login-right">
+
+            <div class="login-box">
+
+                <div class="mobile-logo">🩹</div>
+
+                <p class="welcome-small">WELCOME BACK</p>
+
+                <h2>เข้าสู่ระบบ</h2>
+
+                <p class="login-subtitle">
+                    เข้าสู่ HealTrack เพื่อดูข้อมูลการฟื้นตัวของแผล
+                </p>
+
+                <form id="loginForm">
+
+                    <div class="input-group">
+
+                        <label>อีเมล</label>
+
+                        <div class="input-wrapper">
+                            <span>✉️</span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="example@email.com"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>รหัสผ่าน</label>
+
+                        <div class="input-wrapper">
+
+                            <span>🔒</span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="กรอกรหัสผ่าน"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword()"
+                            >
+                                👁️
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="login-options">
+
+                        <label class="remember">
+                            <input type="checkbox" id="remember">
+                            <span>จดจำการเข้าสู่ระบบ</span>
+                        </label>
+
+                        <button
+                            type="button"
+                            class="forgot"
+                            onclick="forgotPassword()"
+                        >
+                            ลืมรหัสผ่าน?
+                        </button>
+
+                    </div>
+
+
+                    <button class="login-btn" type="submit">
+                        เข้าสู่ระบบ
+                        <span>→</span>
+                    </button>
+
+                </form>
+
+
+                <div class="divider">
+                    <span>หรือ</span>
+                </div>
+
+
+                <button class="demo-btn" onclick="demoLogin()">
+                    ✨ ทดลองใช้งาน Demo
+                </button>
+
+
+                <p class="register-text">
+                    ยังไม่มีบัญชี?
+                    <button onclick="registerDemo()">สร้างบัญชีใหม่</button>
+                </p>
+
+
+                <div class="security-note">
+                    🔐 ข้อมูลของคุณถูกจัดเก็บอย่างปลอดภัย
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= APP ================= -->
+
+<div id="app" class="app hidden">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">🩹</div>
+
+            <div>
+                <h2>HealTrack</h2>
+                <span>Healing Journey</span>
+            </div>
+
+        </div>
+
+
+        <div class="profile-card">
+
+            <div class="profile-avatar">
+                👩🏻
+            </div>
+
+            <div>
+                <strong id="userName">ผู้ใช้งาน</strong>
+                <span>Wound Patient</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <button
+                class="menu-item active"
+                data-page="analysis"
+                onclick="showPage('analysis')"
+            >
+                <span>🔍</span>
+                <div>
+                    <strong>Analysis</strong>
+                    <small>วิเคราะห์แผล</small>
+                </div>
+            </button>
+
+
+            <button
+                class="menu-item"
+                data-page="history"
+                onclick="showPage('history')"
+            >
+                <span>📅</span>
+                <div>
+                    <strong>History</strong>
+                    <small>ประวัติการติดตาม</small>
+                </div>
+            </button>
+
+
+            <button
+                class="menu-item"
+                data-page="record"
+                onclick="showPage('record')"
+            >
+                <span>➕</span>
+                <div>
+                    <strong>New Record</strong>
+                    <small>บันทึกข้อมูลใหม่</small>
+                </div>
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="help-card">
+                <div>💗</div>
+                <strong>Healing takes time</strong>
+                <p>ติดตามแผลอย่างสม่ำเสมอ</p>
+            </div>
+
+            <button class="logout-btn" onclick="logout()">
+                🚪 ออกจากระบบ
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+                <p class="top-small">GOOD EVENING 👋</p>
+                <h1 id="pageTitle">Wound Analysis</h1>
+            </div>
+
+            <div class="top-actions">
+
+                <div class="notification">
+                    🔔
+                    <span></span>
+                </div>
+
+                <div class="today">
+                    <span>วันนี้</span>
+                    <strong id="todayDate"></strong>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================================================= -->
+        <!-- ANALYSIS PAGE -->
+        <!-- ================================================= -->
+
+        <section id="analysisPage" class="page active-page">
+
+
+            <!-- HERO -->
+
+            <div class="analysis-hero">
+
+                <div class="hero-text">
+
+                    <span class="status-pill">
+                        <i></i>
+                        Monitoring
+                    </span>
+
+                    <h2>Healing Journey</h2>
+
+                    <p>
+                        ติดตามการเปลี่ยนแปลงของแผล
+                        และดูแนวโน้มการฟื้นตัวจากข้อมูลย้อนหลัง
+                    </p>
+
+                    <div class="journey-days">
+
+                        <div class="journey-day completed">
+                            <span>Day 1</span>
+                            <b>✓</b>
+                        </div>
+
+                        <div class="journey-line"></div>
+
+                        <div class="journey-day completed">
+                            <span>Day 2</span>
+                            <b>✓</b>
+                        </div>
+
+                        <div class="journey-line"></div>
+
+                        <div class="journey-day current">
+                            <span>Today</span>
+                            <b>♥</b>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-score">
+
+                    <div class="score-ring">
+
+                        <div class="score-inner">
+                            <strong id="heroScore">82</strong>
+                            <span>/ 100</span>
+                        </div>
+
+                    </div>
+
+                    <p>Recovery Score</p>
+                    <small>Good progress ✨</small>
+
+                </div>
+
+            </div>
+
+
+            <!-- WOUND OVERVIEW -->
+
+            <div class="section-title">
+
+                <div>
+                    <span>01</span>
+                    <h2>Wound Overview</h2>
+                </div>
+
+                <button
+                    class="small-btn"
+                    onclick="showPage('record')"
+                >
+                    + บันทึกใหม่
+                </button>
+
+            </div>
+
+
+            <div class="overview-grid">
+
+
+                <!-- IMAGE -->
+
+                <div class="wound-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="mini-label">LATEST PHOTO</span>
+                            <h3>ภาพแผลล่าสุด</h3>
+                        </div>
+
+                        <span class="date-badge" id="latestDate">
+                            วันนี้
+                        </span>
+
+                    </div>
+
+
+                    <div class="wound-image-box">
+
+                        <img
+                            id="heroImage"
+                            src=""
+                            alt="Wound Photo"
+                        >
+
+                        <div
+                            id="imagePlaceholder"
+                            class="image-placeholder"
+                        >
+                            <div>🩹</div>
+                            <span>ยังไม่มีรูปแผล</span>
+                            <small>สามารถเพิ่มรูปได้ใน New Record</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="image-info">
+
+                        <div>
+                            <span>บันทึกล่าสุด</span>
+                            <strong id="latestTime">--:--</strong>
+                        </div>
+
+                        <div>
+                            <span>สถานะ</span>
+                            <strong class="good-text">กำลังติดตาม</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK METRICS -->
+
+                <div class="metrics-column">
+
+                    <div class="metric-card temperature">
+
+                        <div class="metric-icon">
+                            🌡️
+                        </div>
+
+                        <div class="metric-info">
+                            <span>Temperature</span>
+                            <strong id="tempValue">36.8°C</strong>
+                            <small>อุณหภูมิบริเวณแผล</small>
+                        </div>
+
+                        <div class="metric-status">
+                            ✓
+                        </div>
+
+                    </div>
+
+
+                    <div class="metric-card ph">
+
+                        <div class="metric-icon">
+                            🧪
+                        </div>
+
+                        <div class="metric-info">
+                            <span>pH Level</span>
+                            <strong id="phValue">6.2</strong>
+                            <small>ค่าความเป็นกรด-ด่าง</small>
+                        </div>
+
+                        <div class="metric-status">
+                            ✓
+                        </div>
+
+                    </div>
+
+
+                    <div class="metric-card recovery">
+
+                        <div class="metric-icon">
+                            💗
+                        </div>
+
+                        <div class="metric-info">
+                            <span>Recovery Score</span>
+                            <strong id="quickScore">82 / 100</strong>
+                            <small>แนวโน้มการฟื้นตัว</small>
+                        </div>
+
+                        <div class="metric-status">
+                            ↗
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DETAILED ANALYSIS -->
+
+            <div class="section-title detailed-title">
+
+                <div>
+                    <span>02</span>
+                    <h2>Detailed Analysis</h2>
+                </div>
+
+                <p>วิเคราะห์ข้อมูลล่าสุดและเปรียบเทียบกับข้อมูลย้อนหลัง</p>
+
+            </div>
+
+
+            <div class="detail-grid">
+
+
+                <!-- TEMPERATURE -->
+
+                <div class="detail-card">
+
+                    <div class="detail-card-top">
+
+                        <div class="detail-icon temp-icon">
+                            🌡️
+                        </div>
+
+                        <div>
+                            <span>Temperature Analysis</span>
+                            <h3>อุณหภูมิแผล</h3>
+                        </div>
+
+                        <div class="trend-up">
+                            ↘ Stable
+                        </div>
+
+                    </div>
+
+
+                    <div class="big-value">
+                        <strong id="detailTemp">36.8</strong>
+                        <span>°C</span>
+                    </div>
+
+
+                    <div class="analysis-status good">
+                        <span>●</span>
+                        อยู่ในระดับที่ติดตามได้
+                    </div>
+
+
+                    <p class="detail-description">
+                        ระบบตรวจพบอุณหภูมิบริเวณแผลที่
+                        <b id="tempDescription">36.8°C</b>
+                        และนำไปเปรียบเทียบกับข้อมูลที่บันทึกไว้ก่อนหน้า
+                        เพื่อดูแนวโน้มการเปลี่ยนแปลง
+                    </p>
+
+
+                    <div class="comparison-box">
+
+                        <div>
+                            <span>ครั้งก่อน</span>
+                            <strong id="previousTemp">37.0°C</strong>
+                        </div>
+
+                        <div class="comparison-arrow">
+                            ↓
+                        </div>
+
+                        <div>
+                            <span>ล่าสุด</span>
+                            <strong id="currentTemp">36.8°C</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-note">
+                        💡 หากอุณหภูมิมีการเปลี่ยนแปลงผิดจากแนวโน้มเดิม
+                        ระบบจะแจ้งเตือนเพื่อให้ตรวจสอบเพิ่มเติม
+                    </div>
+
+                </div>
+
+
+                <!-- PH -->
+
+                <div class="detail-card">
+
+                    <div class="detail-card-top">
+
+                        <div class="detail-icon ph-icon">
+                            🧪
+                        </div>
+
+                        <div>
+                            <span>pH Analysis</span>
+                            <h3>ค่า pH ของแผล</h3>
+                        </div>
+
+                        <div class="trend-up">
+                            ↘ Stable
+                        </div>
+
+                    </div>
+
+
+                    <div class="big-value">
+                        <strong id="detailPH">6.2</strong>
+                        <span>pH</span>
+                    </div>
+
+
+                    <div class="analysis-status good">
+                        <span>●</span>
+                        ติดตามแนวโน้มได้
+                    </div>
+
+
+                    <p class="detail-description">
+                        ระบบบันทึกค่า pH ของแผลและเปรียบเทียบกับ
+                        ค่าที่บันทึกไว้ก่อนหน้า เพื่อช่วยติดตาม
+                        การเปลี่ยนแปลงของสภาพแวดล้อมบริเวณแผล
+                    </p>
+
+
+                    <div class="ph-scale">
+
+                        <div class="scale-labels">
+                            <span>Acidic</span>
+                            <span>Current</span>
+                            <span>Alkaline</span>
+                        </div>
+
+                        <div class="scale-bar">
+                            <div
+                                id="phMarker"
+                                class="ph-marker"
+                            ></div>
+                        </div>
+
+                        <div class="scale-number">
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-note">
+                        💡 ค่า pH เป็นหนึ่งในข้อมูลที่สามารถนำมาใช้
+                        ร่วมกับข้อมูลอื่นเพื่อวิเคราะห์แนวโน้มของแผล
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECOVERY ANALYSIS -->
+
+            <div class="recovery-analysis">
+
+                <div class="section-title">
+
+                    <div>
+                        <span>03</span>
+                        <h2>Recovery Score Analysis</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="recovery-content">
+
+
+                    <div class="score-large">
+
+                        <div class="large-score-ring">
+
+                            <div>
+                                <strong id="largeScore">82</strong>
+                                <span>Recovery</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="score-explanation">
+
+                        <h3>แนวโน้มการฟื้นตัวอยู่ในระดับดี 💗</h3>
+
+                        <p>
+                            Recovery Score เป็นคะแนนตัวอย่างของต้นแบบ
+                            ที่ใช้สรุปข้อมูลหลายด้านร่วมกัน
+                            เพื่อให้เห็นแนวโน้มการฟื้นตัวได้ง่ายขึ้น
+                        </p>
+
+
+                        <div class="score-components">
+
+                            <div class="component">
+
+                                <div class="component-name">
+                                    <span>🌡️ Temperature</span>
+                                    <strong id="tempScore">88%</strong>
+                                </div>
+
+                                <div class="progress">
+                                    <div
+                                        id="tempProgress"
+                                        class="progress-fill"
+                                        style="width:88%"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="component">
+
+                                <div class="component-name">
+                                    <span>🧪 pH</span>
+                                    <strong id="phScore">80%</strong>
+                                </div>
+
+                                <div class="progress">
+                                    <div
+                                        id="phProgress"
+                                        class="progress-fill"
+                                        style="width:80%"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="component">
+
+                                <div class="component-name">
+                                    <span>📅 Consistency</span>
+                                    <strong id="consistencyScore">78%</strong>
+                                </div>
+
+                                <div class="progress">
+                                    <div
+                                        id="consistencyProgress"
+                                        class="progress-fill"
+                                        style="width:78%"
+                                    ></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI INSIGHT -->
+
+            <div class="section-title">
+
+                <div>
+                    <span>04</span>
+                    <h2>AI Insight</h2>
+                </div>
+
+            </div>
+
+
+            <div class="ai-card">
+
+                <div class="ai-icon">
+                    🤖
+                </div>
+
+
+                <div class="ai-content">
+
+                    <div class="ai-title">
+
+                        <div>
+                            <span>AI-ASSISTED ANALYSIS</span>
+                            <h3>สิ่งที่ระบบสังเกตได้</h3>
+                        </div>
+
+                        <span class="ai-badge">
+                            Prototype
+                        </span>
+
+                    </div>
+
+
+                    <p id="aiInsight">
+                        จากข้อมูลที่บันทึกล่าสุด
+                        ระบบพบว่าอุณหภูมิมีแนวโน้มคงที่
+                        และค่า pH ยังสามารถติดตามต่อเนื่องได้
+                        จึงจัดสถานะเป็น Monitoring
+                        และยังไม่พบการเปลี่ยนแปลงที่โดดเด่นจากข้อมูลตัวอย่าง
+                    </p>
+
+
+                    <div class="ai-points">
+
+                        <div>
+                            <span>✓</span>
+                            <p>เปรียบเทียบข้อมูลกับประวัติย้อนหลัง</p>
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            <p>ตรวจจับการเปลี่ยนแปลงของแนวโน้ม</p>
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            <p>ช่วยแจ้งเตือนเมื่อพบค่าที่ควรตรวจสอบ</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ALERT -->
+
+            <div class="alert-card">
+
+                <div class="alert-icon">
+                    🔔
+                </div>
+
+                <div>
+
+                    <span>MONITORING ALERT</span>
+
+                    <h3>ยังไม่พบการเปลี่ยนแปลงที่โดดเด่น</h3>
+
+                    <p>
+                        ระบบยังคงติดตามข้อมูลอย่างต่อเนื่อง
+                        หากมีการเปลี่ยนแปลงจากแนวโน้มเดิม
+                        จะแสดงการแจ้งเตือนในส่วนนี้
+                    </p>
+
+                </div>
+
+                <div class="alert-status">
+                    Normal
+                </div>
+
+            </div>
+
+
+            <!-- SUMMARY -->
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    💗
+                </div>
+
+                <div>
+
+                    <span>HEALING SUMMARY</span>
+
+                    <h3>สรุปการติดตามวันนี้</h3>
+
+                    <p id="summaryText">
+                        วันนี้มีการบันทึกข้อมูลการติดตามแผล
+                        โดยค่าอุณหภูมิและ pH สามารถนำมาใช้
+                        เปรียบเทียบกับข้อมูลย้อนหลังได้
+                        ภาพรวมอยู่ในสถานะ Monitoring
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="medical-note">
+
+                ⚕️ <b>หมายเหตุ:</b>
+                HealTrack เป็นแนวคิดต้นแบบสำหรับติดตามและแสดงผลข้อมูล
+                ไม่ใช่เครื่องมือวินิจฉัยโรค และไม่สามารถใช้แทนคำแนะนำ
+                หรือการตรวจจากบุคลากรทางการแพทย์ได้
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- HISTORY -->
+        <!-- ================================================= -->
+
+        <section id="historyPage" class="page">
+
+            <div class="page-heading">
+
+                <div>
+                    <span>HEALING JOURNEY</span>
+                    <h2>ประวัติการติดตาม</h2>
+                    <p>ดูข้อมูลการบันทึกทั้งหมดของแผล</p>
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="showPage('record')"
+                >
+                    + เพิ่มข้อมูล
+                </button>
+
+            </div>
+
+
+            <div id="historyList" class="history-list"></div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- RECORD -->
+        <!-- ================================================= -->
+
+        <section id="recordPage" class="page">
+
+            <div class="page-heading">
+
+                <div>
+                    <span>NEW RECORD</span>
+                    <h2>บันทึกข้อมูลแผล</h2>
+                    <p>เพิ่มข้อมูลการติดตามครั้งใหม่</p>
+                </div>
+
+            </div>
+
+
+            <div class="record-container">
+
+                <form id="recordForm" class="record-form">
+
+
+                    <div class="form-section">
+
+                        <h3>📸 ภาพแผล</h3>
+
+                        <div
+                            class="upload-area"
+                            onclick="document.getElementById('woundImage').click()"
+                        >
+
+                            <div id="uploadPreview">
+                                <div class="upload-icon">📷</div>
+                                <strong>เพิ่มรูปแผล</strong>
+                                <span>คลิกเพื่อเลือกรูปจากเครื่อง</span>
+                            </div>
+
+                            <img
+                                id="previewImage"
+                                class="preview-image hidden"
+                                alt="Preview"
+                            >
+
+                        </div>
+
+                        <input
+                            type="file"
+                            id="woundImage"
+                            accept="image/*"
+                            hidden
+                        >
+
+                    </div>
+
+
+                    <div class="form-section">
+
+                        <h3>🌡️ ข้อมูลการวัด</h3>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-field">
+
+                                <label>
+                                    Temperature (°C)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="temperature"
+                                    step="0.1"
+                                    min="20"
+                                    max="45"
+                                    placeholder="เช่น 36.8"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label>
+                                    pH Level
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="ph"
+                                    step="0.1"
+                                    min="0"
+                                    max="14"
+                                    placeholder="เช่น 6.2"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-section">
+
+                        <h3>📝 บันทึกเพิ่มเติม</h3>
+
+                        <textarea
+                            id="note"
+                            rows="4"
+                            placeholder="เขียนรายละเอียดเพิ่มเติมเกี่ยวกับแผล..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        💗 บันทึกข้อมูล
+                    </button>
+
+                </form>
+
+
+                <div class="record-side">
+
+                    <div class="tips-card">
+
+                        <div class="tips-icon">✨</div>
+
+                        <h3>Tips for better tracking</h3>
+
+                        <p>
+                            เพื่อให้สามารถเปรียบเทียบข้อมูลย้อนหลัง
+                            ได้ง่าย ควรบันทึกข้อมูลในช่วงเวลาใกล้เคียงกัน
+                        </p>
+
+                        <ul>
+
+                            <li>📸 ถ่ายภาพในมุมใกล้เคียงกัน</li>
+                            <li>🌡️ วัดอุณหภูมิอย่างสม่ำเสมอ</li>
+                            <li>🧪 บันทึกค่า pH ตามวิธีที่กำหนด</li>
+                            <li>📅 บันทึกข้อมูลอย่างต่อเนื่อง</li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="prototype-card">
+
+                        <span>💡 PROTOTYPE</span>
+
+                        <p>
+                            ข้อมูลและเกณฑ์ในหน้านี้เป็นตัวอย่าง
+                            สำหรับการพัฒนาต้นแบบ
+                            ไม่ใช่เกณฑ์ทางการแพทย์ที่ผ่านการรับรอง
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast" class="toast">
+    <span>✓</span>
+    <p id="toastMessage">บันทึกสำเร็จ</p>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
